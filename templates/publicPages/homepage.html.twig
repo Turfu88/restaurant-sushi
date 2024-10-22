@@ -1,6 +1,8 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseFront.html.twig' %}
 
 {% block body %}
-    <div>{{ message }}</div>
-    <div>{{ path }}</div>
+<div>
+    <h1 class="text-xl font-bold">Homepage</h1>
+    <a href="/dashboard" class="inline-block font-bold underline mt-10">Go to dashboard</a>
+</div>
 {% endblock %}

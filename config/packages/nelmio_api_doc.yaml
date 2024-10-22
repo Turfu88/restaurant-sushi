@@ -1,0 +1,12 @@
+nelmio_api_doc:
+    areas:
+        # Only include the routes under the 'default' area for now.
+        # You can add your custom areas or modify existing ones.
+        default:
+            path_patterns: # Inclure les routes qui matchent ces motifs de chemin
+                - ^/api
+    documentation:
+        info:
+            title: 'API Documentation'
+            description: 'API Documentation with Swagger'
+            version: '1.0.0'

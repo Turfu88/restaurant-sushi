@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edition de réservation{% endblock %}
+
+{% block body %}
+    <div id="root"></div>
+    <div
+        class="data-js"
+        data-booking="{{ booking }}"
+        data-establishments="{{ establishments }}"
+        data-meal-times="{{ mealTimes }}"
+    ></div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ encore_entry_script_tags('bookingForm') }}
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Composition du menu {% endblock %}
+
+{% block body %}
+    <div id="root"></div>
+    <div
+        class="data-js"
+        data-menu="{{ menu }}"
+        data-products="{{ products }}"
+    ></div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ encore_entry_script_tags('menuComposer') }}
+{% endblock %}

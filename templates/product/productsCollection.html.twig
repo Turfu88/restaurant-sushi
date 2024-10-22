@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des produits{% endblock %}
+
+{% block body %}
+    <div id="root"></div>
+    <div class="data-js"
+        data-products="{{ products }}"
+    >
+</div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ encore_entry_script_tags('products') }}
+{% endblock %}

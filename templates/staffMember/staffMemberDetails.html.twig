@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fiche Employé{% endblock %}
+
+{% block body %}
+    <div id="root"></div>
+    <div
+        class="data-js"
+        data-staff-member="{{ staffMember }}"
+    ></div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ encore_entry_script_tags('staffMemberDetails') }}
+{% endblock %}

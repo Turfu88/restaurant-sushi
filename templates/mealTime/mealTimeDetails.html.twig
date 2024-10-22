@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails service{% endblock %}
+
+{% block body %}
+    <div id="root"></div>
+    <div
+        class="data-js"
+        data-meal-time="{{ mealTime }}"
+    ></div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ encore_entry_script_tags('mealTimeDetails') }}
+{% endblock %}

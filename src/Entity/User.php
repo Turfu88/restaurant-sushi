@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -31,6 +33,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\Column]
     private ?string $password = null;
+
+    /**
+     * @var Collection<int, StaffMember>
+     */
+    #[ORM\OneToMany(targetEntity: StaffMember::class, mappedBy: 'user', orphanRemoval: true)]
+    private Collection $staffMembers;
+
+    public function __construct()
+    {
+        $this->staffMembers = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -104,5 +117,35 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    /**
+     * @return Collection<int, StaffMember>
+     */
+    public function getStaffMembers(): Collection
+    {
+        return $this->staffMembers;
+    }
+
+    public function addStaffMember(StaffMember $staffMember): static
+    {
+        if (!$this->staffMembers->contains($staffMember)) {
+            $this->staffMembers->add($staffMember);
+            $staffMember->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeStaffMember(StaffMember $staffMember): static
+    {
+        if ($this->staffMembers->removeElement($staffMember)) {
+            // set the owning side to null (unless already changed)
+            if ($staffMember->getUser() === $this) {
+                $staffMember->setUser(null);
+            }
+        }
+
+        return $this;
     }
 }

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des affectations{% endblock %}
+
+{% block body %}
+    <div id="root"></div>
+    <div
+        class="data-js"
+        data-staff-member="{{ staffMember }}"
+        data-establishments="{{ establishments }}"
+    ></div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ encore_entry_script_tags('staffMemberAffectations') }}
+{% endblock %}

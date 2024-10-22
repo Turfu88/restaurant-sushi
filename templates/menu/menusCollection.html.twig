@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des menus{% endblock %}
+
+{% block body %}
+    <div id="root"></div>
+    <div class="data-js"
+        data-menus="{{ menus }}"
+    >
+</div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ encore_entry_script_tags('menus') }}
+{% endblock %}

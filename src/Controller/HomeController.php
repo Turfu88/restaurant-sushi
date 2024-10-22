@@ -13,8 +13,7 @@ class HomeController extends AbstractController
     public function index(): Response
     {
         return $this->render('/publicPages/homepage.html.twig', [
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/HomeController.php',
+            'app' => 'home',
         ]);
     }
 }
